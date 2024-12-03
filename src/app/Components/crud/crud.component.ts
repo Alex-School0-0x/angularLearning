@@ -13,11 +13,12 @@ export class CRUDComponent {
   isVis : boolean = false;
   showArray : string = "";
   inputText : string = "";
+  searchText : string = "";
   index : number = 0;
 
-  create(name : string) : void {
-    if (name != ""){
-      this.names.push(name);
+  create() : void {
+    if (this.inputText != ""){
+      this.names.push(this.inputText);
     }
     this.inputText = "";
   }
@@ -29,19 +30,12 @@ export class CRUDComponent {
   }
 
   update() : void {
-
+    if (this.inputText != ""){
+      this.names[this.index] = this.inputText;
+    }
   }
 
   delete() : void {
 
-  }
-
-  Choose() : void {
-    if (this.index >= this.names.length) {
-      this.index = this.names.length -1;
-    }
-    if (this.index < 0) {
-      this.index = 0;
-    }
   }
 }
