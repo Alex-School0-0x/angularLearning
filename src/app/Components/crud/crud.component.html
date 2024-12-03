@@ -1,6 +1,10 @@
 <p class="toggleable">{{showArray}}</p>
+<p class="toggleable">{{names[index]}}</p>
+<input type="number" min="0" max="" [(ngModel)]="index">
+<br>
 <button (click)="read()">Read Array</button>
-<br/>
 <button (click)="create(inputText)">Input</button>
+<button (click)="update()">update</button>
+<button (click)="delete()">delete</button>
 <br>
 <input type="text" [(ngModel)]="inputText">

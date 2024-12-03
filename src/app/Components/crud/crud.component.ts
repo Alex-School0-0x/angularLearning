@@ -13,6 +13,7 @@ export class CRUDComponent {
   isVis : boolean = false;
   showArray : string = "";
   inputText : string = "";
+  index : number = 0;
 
   create(name : string) : void {
     if (name != ""){
@@ -33,5 +34,14 @@ export class CRUDComponent {
 
   delete() : void {
 
+  }
+
+  Choose() : void {
+    if (this.index >= this.names.length) {
+      this.index = this.names.length -1;
+    }
+    if (this.index < 0) {
+      this.index = 0;
+    }
   }
 }
