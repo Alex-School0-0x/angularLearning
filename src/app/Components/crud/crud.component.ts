@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -10,38 +10,23 @@ import { FormsModule } from '@angular/forms';
 })
 export class CRUDComponent {
   names : string[] = [];
-  isVis : boolean = false;
-  showArray : string = "";
-  inputText : string = "";
-  index : number = 0;
 
-  create(name : string) : void {
-    if (name != ""){
-      this.names.push(name);
-    }
-    this.inputText = "";
+  create() : void {
+    const input = prompt("new Input");
+    if (input != null)
+      this.names.push(input.toString());
   }
 
   read() : void {
-    this.isVis = false;
-    this.showArray = this.names.toString();
-    this.isVis = true;
+    console.log(this.names)
   }
 
   update() : void {
-
+    let input = prompt("Witch one du you want to change")
+    this.names
   }
 
   delete() : void {
 
-  }
-
-  Choose() : void {
-    if (this.index >= this.names.length) {
-      this.index = this.names.length -1;
-    }
-    if (this.index < 0) {
-      this.index = 0;
-    }
   }
 }
