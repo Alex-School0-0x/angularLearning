@@ -9,8 +9,8 @@ import { Observable, ObservableInput } from 'rxjs';
 
 export class GenaricServiceService<ModelType>  {
 
-  url : string = "http://";
-  endPoint : string = "";
+  url : string = "http://localhost:7292/api/";
+  private endPoint : string = "";
   constructor(private http:HttpClient) { }
 
   setEndPoint(endPoint:string):void {
