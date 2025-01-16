@@ -1,3 +1,6 @@
-{{navn}} {{arr2[2]}}
-
-<button (click)="HelloWorld()">Click</button>
+<h1>Postal Codes</h1>
+<ul>
+  <li *ngFor="let postalcode of postalcodes$ | async">
+    {{ postalcode.id }} - {{ postalcode.name }}
+  </li>
+</ul>

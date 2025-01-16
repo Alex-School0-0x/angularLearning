@@ -1,15 +1,21 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { CRUDComponent } from "./Components/crud/crud.component";
+import { GenericGetServiceService as GenService } from './Services/generic-get-service.service';
+import { Observable } from 'rxjs';
+import { CommonModule } from '@angular/common';
+import { User } from './Models/user';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CRUDComponent],
-  //templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
-  template: '<app-crud /><router-outlet />',
+  imports: [CommonModule],
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  postalcodes$: Observable<User[]>; 
 
+  constructor(private service: GenService<User>) {
+    this.service.setEndPoint('Postalcode');
+    this.postalcodes$ = this.service.getAll();
+  }
 }
