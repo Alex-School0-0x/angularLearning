@@ -12,10 +12,10 @@ import { User } from './Models/user';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  postalcodes$: Observable<User[]>; 
+  users$: Observable<User[]>; 
 
   constructor(private service: GenService<User>) {
-    this.service.setEndPoint('Postalcode');
-    this.postalcodes$ = this.service.getAll();
+    this.service.setEndPoint('User');
+    this.users$ = this.service.getAll();
   }
 }
